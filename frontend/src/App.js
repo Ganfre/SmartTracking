@@ -8,9 +8,10 @@ import Mensagens from './paginas/Mensagens';
 import Menu from './componentes/Menu';
 import Notificacao from './paginas/Notificacao';
 import DetalhesDevice from './componentes/DetalhesDevices';
-import { SignupForm, LoginForm } from './componentes/autenticacao/Autenticacao';
+import { SignupForm } from './componentes/autenticacao/Autenticacao';
 import Logout from './paginas/Logout';
 import PrivateRoute from "./componentes/PrivateRoute";
+import Login from "./componentes/Login"
 
 function App() {
   const [menuRetracted, setMenuRetracted] = useState(false);
@@ -34,7 +35,7 @@ function App() {
             <Route path='/mensagens' element={<PrivateRoute element={<Mensagens/>} />} />
             <Route path='/cadastro' element={<PrivateRoute element={<SignupForm/>} />} />
             <Route path='/notificacao' element={<PrivateRoute element={<Notificacao/>} />} />
-            <Route path='/login' element={<LoginForm />} />
+            <Route path='/login' element={<Login />} />
             <Route path='/logout' element={<Logout />} />
           </Routes>
         </div>

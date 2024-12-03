@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome, faUser, faChartLine, faCog, faBell } from '@fortawesome/free-solid-svg-icons';
+import { faHome, faUser, faChartLine, faCog, faBell, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 import Logo_B from './img/Logo_B.png';
 import LogoSS_Menor from './img/LogoSS_Menor.png';
-import { LogoutButton } from './autenticacao/Autenticacao';
+import Logout from "../paginas/Logout";
 import { useApi } from '../hooks/useApi';
 import Userfront from '@userfront/toolkit';
 import ToggleMenu from './ToggleMenu';
@@ -178,7 +178,10 @@ const Menu = ({ onMenuToggle }) => {
             <li style={{ display: 'flex', alignItems: 'center' }}>
               {!retractMenu && (
                 <Link to='/logout'>
-                  <LogoutButton style={{ padding: '0px', margin: '0px', width: '80px' }} />
+                  <Logout />
+                  <div style={{ position: 'absolute', bottom: '320px', fontSize: '20px', zIndex: '1'}}>
+                    <FontAwesomeIcon icon={faSignOutAlt} style={{ marginRight: '10px' }} />Sair
+                  </div>
                 </Link>
               )}
             </li>
