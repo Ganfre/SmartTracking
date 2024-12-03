@@ -10,6 +10,7 @@ import Notificacao from './paginas/Notificacao';
 import DetalhesDevice from './componentes/DetalhesDevices';
 import { SignupForm, LoginForm } from './componentes/autenticacao/Autenticacao';
 import Logout from './paginas/Logout';
+import PrivateRoute from "./componentes/PrivateRoute";
 
 function App() {
   const [menuRetracted, setMenuRetracted] = useState(false);
@@ -27,12 +28,12 @@ function App() {
         <div style={{ flex: 1, height: '100%' }}>
           <Routes>
             <Route path='/' element={<PageHome />} />
-            <Route path='/medidas' element={<Medidas />} />
-            <Route path='/medidas/:id' element={<DetalhesDevice />} />
-            <Route path='/admin' element={<Admin />} />
-            <Route path='/mensagens' element={<Mensagens />} />
-            <Route path='/cadastro' element={<SignupForm />} />
-            <Route path='/notificacao' element={<Notificacao />} />
+            <Route path='/medidas' element={<PrivateRoute element={<Medidas/>} />} />
+            <Route path='/medidas/:id' element={<PrivateRoute element={<DetalhesDevice/>} />} />
+            <Route path='/admin' element={<PrivateRoute element={<Admin/>} />} />
+            <Route path='/mensagens' element={<PrivateRoute element={<Mensagens/>} />} />
+            <Route path='/cadastro' element={<PrivateRoute element={<SignupForm/>} />} />
+            <Route path='/notificacao' element={<PrivateRoute element={<Notificacao/>} />} />
             <Route path='/login' element={<LoginForm />} />
             <Route path='/logout' element={<Logout />} />
           </Routes>
