@@ -179,7 +179,7 @@ const Menu = ({ onMenuToggle }) => {
               {!retractMenu && (
                 <Link to='/logout'>
                   <Logout />
-                  <div style={{ position: 'absolute', bottom: '320px', fontSize: '20px', zIndex: '1'}}>
+                  <div style={{ position: 'absolute', marginBottom: "21px", fontSize: '20px', zIndex: '1'}}>
                     <FontAwesomeIcon icon={faSignOutAlt} style={{ marginRight: '10px' }} />Sair
                   </div>
                 </Link>
