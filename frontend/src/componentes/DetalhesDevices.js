@@ -230,7 +230,7 @@ const DetalhesDevice = () => {
                                     {tipo === "Silo" ? (
                                         <>
                                             <SiloImagem src={siloImg} alt="Silo" />
-                                            <div style={{ position: "absolute", top: "0px", right: "-33px", display: "flex", alignItems: "center" }}>
+                                            <div style={{ position: "absolute", marginLeft: "150px", marginBottom: "330px", display: "flex", alignItems: "center" }}>
                                                 <IconePeso icon={faWeightHanging} peso={pesoAtual} />
                                                 <span style={ pesoAtual < 50 ? { color: "red", fontWeight: 'bold'} : { color: "gray", fontWeight: 'bold' }}>{pesoAtual}kg</span>
                                             </div>
@@ -263,14 +263,14 @@ const DetalhesDevice = () => {
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            {ultimasCincoMedidas.map(med => (
-                                                <tr key={med.data + med.hora}>
-                                                    <td style={med.temperatura < 20 ? { color: "red", fontWeight: 'bold' } : { color: "black" }}>{med.temperatura}°C</td>
-                                                    <td style={med.umidade > 60 ? { color: "red", fontWeight: 'bold' } : { color: "black" }}>{med.umidade}%</td>
-                                                    <td style={med.nivel < 30 ? { color: "red", fontWeight: 'bold' } : { color: "black" }}>{med.nivel}%</td>
-                                                    <td style={med.peso < 50 ? { color: "red", fontWeight: 'bold' } : { color: "black" }}>{med.peso}kg</td>
-                                                    <td>{med.data}</td>
-                                                    <td>{med.hora}h</td>
+                                            {ultimasCincoMedidas.map((medida, index) => (
+                                                <tr key={index}>
+                                                    <td style={medida.temperatura < 20 ? { color: "red", fontWeight: 'bold' } : { color: "black" }}>{medida.temperatura}°C</td>
+                                                    <td style={medida.umidade > 60 ? { color: "red", fontWeight: 'bold' } : { color: "black" }}>{medida.umidade}%</td>
+                                                    <td style={medida.nivel < 30 ? { color: "red", fontWeight: 'bold' } : { color: "black" }}>{medida.nivel}%</td>
+                                                    <td style={medida.peso < 50 ? { color: "red", fontWeight: 'bold' } : { color: "black" }}>{medida.peso}kg</td>
+                                                    <td>{medida.data}</td>
+                                                    <td>{medida.hora}h</td>
                                                 </tr>
                                             ))}
                                         </tbody>
