@@ -10,6 +10,7 @@ export const useApi = (url) => {
         },
         {
             refreshInterval: 30000,
+            revalidateOnFocus: false,
         }
     )
     return { data, error }
