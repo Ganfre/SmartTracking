@@ -146,6 +146,11 @@ const IconePeso = styled(FontAwesomeIcon)`
     }
 `;
 
+const TabelaWrapper = styled.div`
+    max-height: 261.5px;
+    overflow-y: auto; 
+`;
+
 const DetalhesDevice = () => {
     const { id } = useParams();
     const { data } = useApi(`/devices/detalhes/${id}`);
@@ -245,31 +250,33 @@ const DetalhesDevice = () => {
                         <Card style={{ height: "385px", marginBottom: "15px"}}>
                             <Card.Header>Últimas Medidas</Card.Header>
                             <Card.Body>
-                                <CustomTable striped bordered hover>
-                                    <thead>
-                                        <tr>
-                                            <th>Temperatura</th>
-                                            <th>Umidade</th>
-                                            <th>Nível</th>
-                                            <th>Peso</th>
-                                            <th>Data</th>
-                                            <th>Hora</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        {ultimasCincoMedidas.map(med => (
-                                            <tr key={med.data + med.hora}>
-                                                <td style={med.temperatura < 20 ? { color: "red", fontWeight: 'bold' } : { color: "black" }}>{med.temperatura}°C</td>
-                                                <td style={med.umidade > 60 ? { color: "red", fontWeight: 'bold' } : { color: "black" }}>{med.umidade}%</td>
-                                                <td style={med.nivel < 30 ? { color: "red", fontWeight: 'bold' } : { color: "black" }}>{med.nivel}%</td>
-                                                <td style={med.peso < 50 ? { color: "red", fontWeight: 'bold' } : { color: "black" }}>{med.peso}kg</td>
-                                                <td>{med.data}</td>
-                                                <td>{med.hora}h</td>
+                                <TabelaWrapper>
+                                    <CustomTable striped bordered hover>
+                                        <thead>
+                                            <tr>
+                                                <th>Temperatura</th>
+                                                <th>Umidade</th>
+                                                <th>Nível</th>
+                                                <th>Peso</th>
+                                                <th>Data</th>
+                                                <th>Hora</th>
                                             </tr>
-                                        ))}
-                                    </tbody>
-                                </CustomTable>
-                                <Button variant="primary" onClick={exportToCsv}>Exportar CSV</Button>
+                                        </thead>
+                                        <tbody>
+                                            {ultimasCincoMedidas.map(med => (
+                                                <tr key={med.data + med.hora}>
+                                                    <td style={med.temperatura < 20 ? { color: "red", fontWeight: 'bold' } : { color: "black" }}>{med.temperatura}°C</td>
+                                                    <td style={med.umidade > 60 ? { color: "red", fontWeight: 'bold' } : { color: "black" }}>{med.umidade}%</td>
+                                                    <td style={med.nivel < 30 ? { color: "red", fontWeight: 'bold' } : { color: "black" }}>{med.nivel}%</td>
+                                                    <td style={med.peso < 50 ? { color: "red", fontWeight: 'bold' } : { color: "black" }}>{med.peso}kg</td>
+                                                    <td>{med.data}</td>
+                                                    <td>{med.hora}h</td>
+                                                </tr>
+                                            ))}
+                                        </tbody>
+                                    </CustomTable>
+                                </TabelaWrapper>
+                                <Button style={{marginTop: '10px'}} variant="primary" onClick={exportToCsv}>Exportar CSV</Button>
                             </Card.Body>
                         </Card>
                     </Col>
