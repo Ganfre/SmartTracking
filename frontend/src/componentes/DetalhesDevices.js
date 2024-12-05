@@ -222,7 +222,7 @@ const DetalhesDevice = () => {
                     <Titulo><h1>{data?.data?.message?.nome}</h1></Titulo>
                </LinhaTitulo>
                 <Row>
-                    <Col md={3}>
+                    <Col md={4}>
                         <Card style={{ height: "385px", marginBottom: "15px" }}>
                             <Card.Header>{tipo === "Silo" ? "Silo" : "Caixa d'Água"}</Card.Header>
                             <Card.Body>
@@ -230,7 +230,7 @@ const DetalhesDevice = () => {
                                     {tipo === "Silo" ? (
                                         <>
                                             <SiloImagem src={siloImg} alt="Silo" />
-                                            <div style={{ position: "absolute", marginLeft: "150px", marginBottom: "330px", display: "flex", alignItems: "center" }}>
+                                            <div style={{ position: "absolute", marginLeft: "210px", marginBottom: "315px", display: "flex", alignItems: "center" }}>
                                                 <IconePeso icon={faWeightHanging} peso={pesoAtual} />
                                                 <span style={ pesoAtual < 50 ? { color: "red", fontWeight: 'bold'} : { color: "gray", fontWeight: 'bold' }}>{pesoAtual}kg</span>
                                             </div>
@@ -246,7 +246,7 @@ const DetalhesDevice = () => {
                             </Card.Body>
                         </Card>
                     </Col>
-                    <Col md={9}>
+                    <Col md={8}>
                         <Card style={{ height: "385px", marginBottom: "15px"}}>
                             <Card.Header>Últimas Medidas</Card.Header>
                             <Card.Body>
